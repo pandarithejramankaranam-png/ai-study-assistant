@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, FileText, Image as ImageIcon, Music, HardDrive, Calendar } from 'lucide-react';
+import { BACKEND_URL } from '../api/axiosClient';
 
 export const MaterialViewModal = ({ material, onClose }) => {
   if (!material) return null;
@@ -8,7 +9,7 @@ export const MaterialViewModal = ({ material, onClose }) => {
   const isImg = material.fileType === 'image';
   const isAud = material.fileType === 'audio';
 
-  const fileUrl = `http://localhost:5000${material.filePath}`;
+  const fileUrl = `${BACKEND_URL}${material.filePath}`;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#2D2B2A]/30 backdrop-blur-xs animate-fade-in">
