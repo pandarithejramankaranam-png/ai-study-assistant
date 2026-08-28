@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #FAF8F2;
+    color: #2D2B2A;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Custom Scrollbar in Warm Beige Palette */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F1E8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8CEBE;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C8A97E;
+}
+
+/* Soft Card & Panel Styles */
+.cream-panel {
+  background-color: #FFFFFF;
+  border: 1px solid #E8E1D5;
+  box-shadow: 0 4px 20px -4px rgba(200, 169, 126, 0.08);
+}
+
+.cream-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E8E1D5;
+  transition: all 0.2s ease-in-out;
+}
+
+.cream-card:hover {
+  border-color: #C8A97E;
+  box-shadow: 0 10px 25px -5px rgba(200, 169, 126, 0.12);
+}
+
+/* Flashcard 3D flip animation */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Warm Text Gradient Utility */
+.text-warm-gradient {
+  background: linear-gradient(135deg, #B8976C 0%, #A8B5A2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
