@@ -1,11 +1,12 @@
 {
   "name": "studylens-backend",
   "version": "1.0.0",
-  "description": "Backend API for StudyLens AI - Multimodal AI Study Assistant",
+  "description": "Backend API & Fullstack Server for StudyLens AI",
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
     "start": "node server.js",
+    "build": "cd ../frontend && npm install && npm run build",
     "dev": "node --watch server.js"
   },
   "dependencies": {

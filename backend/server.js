@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
 require('dotenv').config();
 
 const connectDB = require('./config/db.js');
@@ -32,11 +33,22 @@ app.use('/api/chat', chatRoutes);
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'ok',
-    app: 'StudyLens AI API',
+    app: 'StudyLens AI Fullstack Application',
     time: new Date().toISOString(),
     env: process.env.NODE_ENV || 'development',
   });
 });
+
+// Serve frontend static build in single-service fullstack mode
+const frontendDistPath = path.join(__dirname, '../frontend/dist');
+if (fs.existsSync(frontendDistPath)) {
+  app.use(express.static(frontendDistPath));
+  app.get('*', (req, res) => {
+    if (!req.path.startsWith('/api') && !req.path.startsWith('/uploads')) {
+      res.sendFile(path.join(frontendDistPath, 'index.html'));
+    }
+  });
+}
 
 // Global Error Handler
 app.use((err, req, res, next) => {
@@ -49,5 +61,5 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`[StudyLens AI Server] Running on port ${PORT}`);
+  console.log(`[StudyLens AI Fullstack Server] Running on port ${PORT}`);
 });
